@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slideIn {
+    0% {
+      transform: translateY(-100%); /* Start off-screen */
+    }
+    100% {
+      transform: translateY(0); /* Slide in */
+    }
+  }
+  @keyframes slideOut {
+    0% {
+      transform: translateY(-10%); /* Start off-screen */
+    }
+    100% {
+      transform: translateY(100%); /* Slide in */
+    }
+  }
+  
+  
+  #sidebar {
+    /* position: fixed; */
+    top: 24%;
+    left: 0;
+    /* height: 100%; */
+    /* width: 400px; */
+}
+
+  .sidebar-visible {
+    animation: slideIn 0.4s ease-in-out; 
+}
+.sidebar-hidden {
+  animation: slideOut 0.4s ease-in-out; 
+}
+@media (min-width: 768px) {
+  #sidebar {
+    top: 17.5%;
+}
+}

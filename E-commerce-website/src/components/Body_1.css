@@ -1,0 +1,48 @@
+.fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @media (min-width: 890px) and (max-width: 1023px){
+    #textbox{
+        margin-left: 9rem;
+        margin-top: 3.3rem;
+    }
+    #t2{
+        font-size: 1.75rem;
+        line-height: 2.4rem;
+        width: 60%;
+    }
+  }
+  @media (max-width: 768px){
+    #textOverlay{
+        position: relative;
+        width: 100vw;
+        --tw-bg-opacity: 1;
+        background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+    }
+    #textbox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45vh;
+        gap: 2vh;
+    }
+    #t2{
+        font-size: 1.5rem;
+        text-align: center;
+        width: 75%;
+    }
+    #t4{
+        width: 9rem;
+        height: 2.5rem;
+    }
+}
+
