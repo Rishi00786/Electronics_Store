@@ -42,12 +42,12 @@ const Navbar = () => {
                     <div><Link to="/call">Call us <u>123-456-7890</u></Link></div>
                 </div>
             </div>
-            <div id='second' className='second w-screen h-20 bg-blue-200 flex flex-col gap-4  justify-center'>
+            <div id='second' className='second w-screen h-20 bg-white flex flex-col gap-4  justify-center'>
                 <div className='flex items-center justify-between text-black'>
                     <div id='forml1' className='flex gap-12 ml-12'>
                         <div className='text-4xl font-semibold'>TechShed</div>
                         <div className='flex justify-center' id='input1'>
-                            <input type="text" placeholder='Search..' className='rounded-l-full text-center w-72' />
+                            <input type="text" placeholder='Search..' className='bg-gray-200 rounded-l-full text-center w-72' />
                             <div className='w-20 h-12 bg-purple-500 flex items-center justify-center rounded-r-full'>
                                 <button><i className="fa-solid fa-magnifying-glass text-white"></i></button>
                             </div>
