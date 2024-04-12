@@ -19,8 +19,11 @@ import Imgtxt2 from './components/Imgtxt2';
 import Imgtxt3 from './components/Imgtxt3';
 import Helpcentre from './components/Helpcentre';
 import About from './components/About';
+import Category from './components/Category';
+import products from './components/data';
+import ProductDetail from './components/Productdetail';
 
-function App() {
+function App() { 
 
   const { switchh } = useStateContext()
 
@@ -61,7 +64,154 @@ function App() {
       {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
       </>
     },
+    {
+      path: "/Drones & Cameras",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.dronesAndCameras} heading="Drones and Cameras"/>} 
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Mobiles",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.mobile} heading="Mobiles"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Computers",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="Computers"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Tablets",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="Tablets"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Wearable Watch",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="Wearable Tech"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Sale",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="Sale Products"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Shop All",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="All Products"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/T.V & Home Cinema",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="T.V & Home Cinema"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Best Sellers",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="Best Sellers"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Speakers",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="Speakers"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/Headphones",
+      element: <>
+      <Navbar/>
+      {!switchh && <Category products={products.computers} heading="Headphones"/>}      
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    ...Object.entries(products).flatMap(([category, productList]) => (
+      [
+        {
+          path: `/${category.replace(/\s+/g, '-').toLowerCase()}`,
+          element: (
+            <>
+              <Navbar />
+              {!switchh && <Category products={productList} heading={category} />}
+              {!switchh && <Imgtxt3 />}
+              {!switchh && <Footer />}
+              {switchh && (
+                <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}>
+                  <Sidebar />
+                </div>
+              )}
+            </>
+          )
+        },
+        // Define routes for each product
+        ...productList.map(product => ({
+          path: `/product/${product.title.replace(/\s+/g, '-').toLowerCase()}`,
+          element: (
+            <>
+              <Navbar />
+              <ProductDetail product={product} />
+              <Footer />
+              {switchh && (
+                <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}>
+                  <Sidebar />
+                </div>
+              )}
+            </>
+          )
+        }))
+      ]
+    )),
   ]);
+
   return (
     <>
         <RouterProvider router={router} />
