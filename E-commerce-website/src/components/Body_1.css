@@ -20,7 +20,16 @@
         line-height: 2.4rem;
         width: 60%;
     }
+    #second_cont{
+        height: 55vh;
+    }
   }
+  #icon_text{
+    width: 94vw;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Adjust the spread radius and blur radius as needed */
+}
   @media (max-width: 768px){
     #textOverlay{
         position: relative;
@@ -44,5 +53,136 @@
         width: 9rem;
         height: 2.5rem;
     }
+    #img_boxx{
+        height: 60vh;
+        width: 95vw;
+    }
+    #second_cont{
+        height: 135vh;
+    }
+    #a21{
+        font-size: 3rem;
+        width: 40vw;
+    }
+    #a22{
+        font-size: 2.7rem;
+        width: 60vw;
+    }
+    #tb{
+        margin-left: 15vw;
+        margin-top: 6vh;
+    }
+    #img_ele{
+        height: 50vh;
+    }
+    #icon_text{
+        height: 88vh;
+}
+}
+@media (max-width: 509px){
+    #a21{
+        font-size: 2.5rem;
+        width: 40vw;
+    }
+    #a22{
+        font-size: 2.2rem;
+        width: 70vw;
+    }
 }
 
+#second_cont{
+    width: 100vw;
+}
+@media (min-width: 768px) and (max-width:889px){
+    #second_cont{
+        height: 55vh;
+    }
+}
+@media (min-width: 1024px){
+    #second_cont{
+        height: 63vh;
+    }
+}
+@media (min-width: 570px){
+    #ic{
+        font-size: 4rem;
+    }
+    #icon_text{
+        height: 50vh;
+        gap:4rem
+}
+#txxt{
+    font-size: 1.1rem
+}
+}
+@media (min-width: 1045px){
+    #txxt{
+        font-size: 1.1rem
+    }
+    #icon_text{
+        gap: 2.5rem;
+        height: 25vh;
+        justify-content: space-between;
+}
+}
+@media (min-width: 819px) and (max-width: 1044px){
+    #icon_text{
+        height: 50vh;
+        gap: 6rem
+}
+}
+#cards{
+    width: 100vw;
+    height: 90vh;
+}
+#card_down{
+    height: 85vh;
+    width: 95vw;
+}
+#articles{
+    width: 30vw;
+    height: 50vh;
+}
+#article_box{
+    width: 90vw;
+    height: 90vh;
+    background-color: rgb(184, 10, 10);
+}
+#i_box:hover{
+    transform: scale(1.25);
+    transition: transform 0.3s ease;
+}
+#i_box2:hover{
+    transform: scale(1.15);
+    transition: transform 0.3s ease;
+}
+@media (min-width: 769px) {
+    #poly{
+      clip-path:  polygon(0 0, 85% 0, 100% 100%, 0% 100%)
+    }
+  }
+@media (max-width: 768px) {
+    #poly{
+      clip-path:  polygon(0 0, 100% 0, 100% 85%, 0% 100%)
+    }
+  }
+  @media (min-width: 769px) {
+    #poly2{
+      clip-path:  polygon(0 0, 100% 0, 100% 100%, 15% 100%)
+    }
+  }
+@media (max-width: 768px) {
+    #poly2{
+      clip-path:  polygon(0 15%, 100% 0, 100% 100%, 0% 100%)
+    }
+  }
+  @media (min-width: 769px) {
+    #poly3{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0% 10%);
+    }
+  }
+@media (max-width: 768px) {
+    #poly3{
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%, 0% 10%);
+    }
+  }
