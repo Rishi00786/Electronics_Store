@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
 import f1 from '../assets/f1.webp';
+import f2 from '../assets/p2.webp';
+import f3 from '../assets/p3.webp';
+import f4 from '../assets/p4.webp';
+import f5 from '../assets/p5.webp';
+import f6 from '../assets/p6.webp';
+import f7 from '../assets/p7.webp';
+import f8 from '../assets/p8.webp';
 
 const Footer = () => {
   return (
@@ -27,7 +34,7 @@ const Footer = () => {
             <Link to="/Computers">Computers</Link>
             <Link to="/Tablets">Tablets</Link>
             <Link to="/Drones & Cameras">Drones & Cameras</Link>
-            <Link to="/Audio">Audio</Link>
+            <Link to="/Wearable Watch">Audio</Link>
             <Link to="/Mobile">Mobile</Link>
             <Link to="/T.V & Home Cinema">T.V & Home Cinema</Link>
             <Link to="/Wearable Watch">Wearable Tech</Link>
@@ -45,7 +52,7 @@ const Footer = () => {
             <Link to="/shipping-returns">Shipping & Returns</Link>
             <Link to="/terms-conditions">Terms & Conditions</Link>
             <Link to="/payment-methods">Payment Methods</Link>
-            <Link to="/faq">FAQ</Link>
+            <Link to="/help-centre">FAQ</Link>
           </div>
         </div>
         <div className='bg-gray-200 h-1 w-screen'></div>
@@ -54,16 +61,17 @@ const Footer = () => {
         </div>
         <div className="flex gap-12 items-center justify-center flex-wrap">
           <img src={f1} alt="" />
-          <img src={f1} alt="" />
-          <img src={f1} alt="" />
-          <img src={f1} alt="" />
-          <img src={f1} alt="" />
-          <img src={f1} alt="" />
-          <img src={f1} alt="" />
+          <img src={f2} alt="" />
+          <img src={f3} alt="" />
+          <img src={f4} alt="" />
+          <img src={f5} alt="" />
+          <img src={f6} alt="" />
+v         <img src={f7} alt="" />
+          <img src={f8} alt="" />
         </div>
       </div>
       <div className="bg-gray-200 text-black w-full text-center py-4">
-        © 2035 by TechShed. Powered and secured by Wix
+        © 2035 by TechShed. Powered and secured by <a href="https://www.instagram.com/sshui_bnaeh/" target='_blank'><u>Rishi</u></a>
       </div>
     </footer>
   );

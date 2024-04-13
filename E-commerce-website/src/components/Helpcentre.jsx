@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Helpcentre = () => {
-  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen1, setIsOpen1] = useState(true);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
 

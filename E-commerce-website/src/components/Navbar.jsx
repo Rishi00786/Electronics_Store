@@ -5,10 +5,16 @@ import { useStateContext } from '../context/context';
 
 const Navbar = () => {
     const [display, setDisplay] = useState(false);
+    const [heartFilled, setHeartFilled] = useState(false); // State for heart icon
     const { switchh , setswitchh } = useStateContext();
 
     const handleonswitchh = () => {
         setswitchh(!switchh);
+    }
+
+    // Function to toggle heart icon
+    const toggleHeart = () => {
+        setHeartFilled(!heartFilled);
     }
 
     useEffect(() => {
@@ -39,7 +45,7 @@ const Navbar = () => {
                     <div><Link to="/about-us"><u>About</u></Link></div>
                     <div><Link to="/contact-us"><u>Contact</u></Link></div>
                     <div><Link to="/help-centre"><u>Help</u></Link></div>
-                    <div><Link to="/call">Call us <u>123-456-7890</u></Link></div>
+                    <div><Link to="/">Call us <u>123-456-7890</u></Link></div>
                 </div>
             </div>
             <div id='second' className='second w-screen h-20 bg-white flex flex-col gap-4  justify-center'>
@@ -58,9 +64,11 @@ const Navbar = () => {
                             <div className=''><i className="fa-solid fa-user text-2xl"></i></div>
                             <Link to="/login"><div className='font-light'>Log In</div></Link>
                         </div>
-                        <div id='heart'><i className="fa-regular fa-heart text-2xl"></i></div>
+                        <div id='heart' onClick={toggleHeart}>
+                            {heartFilled ? <i className="fa-solid fa-heart text-2xl text-red-500"></i> : <i className="fa-regular fa-heart text-2xl"></i>}
+                        </div>
                         <div id='formr1' className='gap-8 flex'>
-                            <i className="fa-solid fa-cart-shopping text-2xl"></i>
+                            <Link to="/my-cart"><i className="fa-solid fa-cart-shopping text-2xl"></i></Link>
                             {!switchh && <div id='bars' onClick={handleonswitchh} className='hidden text-2xl'><i className="fa-solid fa-bars"></i></div>}
                             {switchh && <div id='bars' onClick={handleonswitchh} className='text-2xl'><i className="fa-solid fa-x"></i></div>}
                         </div>

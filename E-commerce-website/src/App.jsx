@@ -22,6 +22,12 @@ import About from './components/About';
 import Category from './components/Category';
 import products from './components/data';
 import ProductDetail from './components/Productdetail';
+import Slick2 from './components/Slick2';
+import Contact from './components/Contact';
+import ShipRet from './components/ShipRet';
+import TermsCondn from './components/TermsCondn';
+import Cart from './components/Cart';
+import Login from './components/Login';
 
 function App() { 
 
@@ -55,10 +61,80 @@ function App() {
       </>
     },
     {
+      path: "/login",
+      element: <>
+      <Navbar/>
+      {!switchh && <Login/>}            
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
       path: "/about-us",
       element: <>
       <Navbar/>
       {!switchh && <About/>}            
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/contact-us",
+      element: <>
+      <Navbar/>
+      {!switchh && <Contact/>}            
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/shipping-returns",
+      element: <>
+      <Navbar/>
+      {!switchh && <ShipRet/>}            
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/terms-conditions",
+      element: <>
+      <Navbar/>
+      {!switchh && <TermsCondn/>}            
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/payment-methods",
+      element: <>
+      <Navbar/>
+      {!switchh && <TermsCondn/>}            
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/careers",
+      element: <>
+      <Navbar/>
+      {!switchh && <About/>}            
+      {!switchh && <Imgtxt3/>}      
+      {!switchh && <Footer/>}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+      </>
+    },
+    {
+      path: "/my-cart",
+      element: <>
+      <Navbar/>
+      {!switchh && <Cart/>}            
       {!switchh && <Imgtxt3/>}      
       {!switchh && <Footer/>}
       {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
@@ -98,7 +174,7 @@ function App() {
       path: "/Tablets",
       element: <>
       <Navbar/>
-      {!switchh && <Category products={products.computers} heading="Tablets"/>}      
+      {!switchh && <Category products={products.tablets} heading="Tablets"/>}      
       {!switchh && <Imgtxt3/>}      
       {!switchh && <Footer/>}
       {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
@@ -108,7 +184,7 @@ function App() {
       path: "/Wearable Watch",
       element: <>
       <Navbar/>
-      {!switchh && <Category products={products.computers} heading="Wearable Tech"/>}      
+      {!switchh && <Category products={products.wearableTech} heading="Wearable Tech"/>}      
       {!switchh && <Imgtxt3/>}      
       {!switchh && <Footer/>}
       {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
@@ -118,7 +194,7 @@ function App() {
       path: "/Sale",
       element: <>
       <Navbar/>
-      {!switchh && <Category products={products.computers} heading="Sale Products"/>}      
+      {!switchh && <Category products={products.sale} heading="Sale Products"/>}      
       {!switchh && <Imgtxt3/>}      
       {!switchh && <Footer/>}
       {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
@@ -128,7 +204,7 @@ function App() {
       path: "/Shop All",
       element: <>
       <Navbar/>
-      {!switchh && <Category products={products.computers} heading="All Products"/>}      
+      {!switchh && <Category products={products.shopAll} heading="All Products"/>}      
       {!switchh && <Imgtxt3/>}      
       {!switchh && <Footer/>}
       {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
@@ -138,7 +214,7 @@ function App() {
       path: "/T.V & Home Cinema",
       element: <>
       <Navbar/>
-      {!switchh && <Category products={products.computers} heading="T.V & Home Cinema"/>}      
+      {!switchh && <Category products={products.tvAndHomeCinema} heading="T.V & Home Cinema"/>}      
       {!switchh && <Imgtxt3/>}      
       {!switchh && <Footer/>}
       {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
@@ -198,13 +274,15 @@ function App() {
           element: (
             <>
               <Navbar />
-              <ProductDetail product={product} />
-              <Footer />
               {switchh && (
                 <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}>
                   <Sidebar />
                 </div>
               )}
+              <ProductDetail product={product} />
+              <Slick2/>
+              <Imgtxt3/>
+              <Footer />
             </>
           )
         }))

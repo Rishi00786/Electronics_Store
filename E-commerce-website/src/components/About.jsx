@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import about_img from '../assets/about.webp'
-const About = () => {
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import about_img from '../assets/about.webp';
 
+const About = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -9,6 +10,14 @@ const About = () => {
   const [position, setPosition] = useState('');
   const [startDate, setStartDate] = useState('');
   const [resumeLink, setResumeLink] = useState('');
+  const careersRef = useRef(null); // Changed from cRef to careersRef
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/careers') {
+      careersRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location.pathname]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,16 +30,17 @@ const About = () => {
       <h2 className="text-6xl font-bold text-center mb-4">About TechShed</h2>
       <hr className="w-full max-w-screen-lg border-t-2 border-gray-700 mb-24" />
       <div className="flex flex-col md:flex-row items-center justify-center">
-        <img src={about_img} alt="TechShed" className="w-9/12 md:w-auto h-auto rounded-full mb-8 md:mr-8 ml-4" />
+        <img src={about_img} alt="TechShed" className="w-9/12 md:w-auto h-auto rounded-full mb-28 md:mr-8 ml-4" />
         <p className="max-w-xl text-center text-gray-700 mr-4 ml-4 md:ml-0 mb-4">
           I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font. I'm a great place for you to tell a story and let your users know a little more about you. This is a great space to write a long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.
         </p>
       </div>
 
-      <div className="bg-white p-6 gap-12 rounded shadow-md w-screen min-h-screen flex flex-col items-center justify-center">
-      <div><h2 className="text-6xl font-bold text-center mb-4">Careers</h2>
-  <p className="text-center mb-8">Check out our job postings & opportunities waiting for you</p>
-  </div>
+      <div className="bg-white p-6 gap-12 rounded shadow-md w-screen min-h-screen flex flex-col items-center justify-center" ref={careersRef}>
+        <div>
+          <h2 className="text-6xl font-bold text-center mb-4">Careers</h2>
+          <p className="text-center mb-8">Check out our job postings & opportunities waiting for you</p>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
             <div>
@@ -131,12 +141,11 @@ const About = () => {
               />
             </div>
             <div className="mt-6">
-            <button type="submit" className="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Submit
-            </button>
+              <button type="submit" className="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Submit
+              </button>
+            </div>
           </div>
-          </div>
-          
         </form>
       </div>
     </section>

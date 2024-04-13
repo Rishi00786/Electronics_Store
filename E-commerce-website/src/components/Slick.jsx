@@ -2,7 +2,16 @@ import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import tab from '../assets/sale.webp';
 import {Link} from 'react-router-dom'
-
+import s1 from '../assets/SALE/s1.webp'
+import s2 from '../assets/SALE/s2.webp'
+import s3 from '../assets/SALE/s3.webp'
+import s4 from '../assets/SALE/s4.webp'
+import s5 from '../assets/SALE/s5.webp'
+import s6 from '../assets/SALE/s6.webp'
+import s7 from '../assets/SALE/s7.webp'
+import s8 from '../assets/SALE/s8.webp'
+import s9 from '../assets/SALE/s9.webp'
+import s10 from '../assets/SALE/s10.webp'
 // SVG star icon
 const StarIcon = ({ className, filled }) => (
   <svg
@@ -22,22 +31,64 @@ const StarIcon = ({ className, filled }) => (
 const pproducts = [
   {
     title: "Product 1",
-    imageUrl: tab,
+    imageUrl: s1,
     price: 20+'$',
     ratings: 4.5
   },
   {
     title: "Product 2",
-    imageUrl: tab,
+    imageUrl: s2,
     price: 20+'$',
     ratings: 5
   },
   {
     title: "Product 3",
-    imageUrl: tab,
+    imageUrl: s3,
     price: 20+'$',
     ratings: 4
-  }
+  },
+  {
+    title: "Product 4",
+    imageUrl: s4,
+    price: 20+'$',
+    ratings: 4
+  },
+  {
+    title: "Product 5",
+    imageUrl: s5,
+    price: 20+'$',
+    ratings: 4
+  },
+  {
+    title: "Product 6",
+    imageUrl: s6,
+    price: 20+'$',
+    ratings: 4
+  },
+  {
+    title: "Product 7",
+    imageUrl: s7,
+    price: 20+'$',
+    ratings: 4
+  },
+  {
+    title: "Product 8",
+    imageUrl: s8,
+    price: 20+'$',
+    ratings: 4
+  },
+  {
+    title: "Product 9",
+    imageUrl: s9,
+    price: 20+'$',
+    ratings: 4
+  },
+  {
+    title: "Product 10",
+    imageUrl: s10,
+    price: 20+'$',
+    ratings: 4
+  },
 ];
 
 // Function to generate an individual slide

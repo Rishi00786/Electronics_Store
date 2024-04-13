@@ -30,7 +30,7 @@
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Adjust the spread radius and blur radius as needed */
 }
-  @media (max-width: 768px){
+  @media (max-width: 767px){
     #textOverlay{
         position: relative;
         width: 100vw;
@@ -156,32 +156,32 @@
     transform: scale(1.15);
     transition: transform 0.3s ease;
 }
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     #poly{
       clip-path:  polygon(0 0, 85% 0, 100% 100%, 0% 100%)
     }
   }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #poly{
       clip-path:  polygon(0 0, 100% 0, 100% 85%, 0% 100%)
     }
   }
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     #poly2{
       clip-path:  polygon(0 0, 100% 0, 100% 100%, 15% 100%)
     }
   }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #poly2{
       clip-path:  polygon(0 15%, 100% 0, 100% 100%, 0% 100%)
     }
   }
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     #poly3{
         clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0% 10%);
     }
   }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #poly3{
         clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%, 0% 10%);
     }

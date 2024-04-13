@@ -86,8 +86,8 @@ const Body_1 = () => {
             <div ><img id='img_boxx' src={headphones} alt="" srcset="" /></div>
         </div>
     </div>
-    <div className='flex w-screen h-max items-center justify-center'>
-    <div id='icon_text' className='flex flex-wrap gap-16 items-center justify-center'>
+    <div className='flex flex-col sm:flex-row items-center justify-center'>
+    <div id='icon_text' className='flex flex-wrap gap-4 sm:gap-16 items-center justify-center'>
         {icon_txt("solid","truck-pickup","Curb-side pickup")}
         {icon_txt("solid","money-bill-trend-up","Low prices guaranteed")}
         {icon_txt("regular","clock","Available to you 24/7")}
@@ -96,7 +96,8 @@ const Body_1 = () => {
             <div id="txxt" className='font-medium text-md text-center w-36 '>Free shipping on orders over $50</div>
         </div>
     </div>
-    </div>
+</div>
+
     {/* <div>
       <ArticleSlider/>
     </div> */}
