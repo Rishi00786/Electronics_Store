@@ -2,19 +2,52 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { useStateContext } from '../context/context';
+import useNavigation from './useNavigation';
+import SearchAlert from './SearchAlert'; // Import the SearchAlert component
 
 const Navbar = () => {
     const [display, setDisplay] = useState(false);
-    const [heartFilled, setHeartFilled] = useState(false); // State for heart icon
-    const { switchh , setswitchh } = useStateContext();
+    const [heartFilled, setHeartFilled] = useState(false); 
+    const [searchQuery, setSearchQuery] = useState('');
+    const [showAlert, setShowAlert] = useState(false); // State to control the visibility of the alert
+    const { switchh, setswitchh } = useStateContext();
+    const { navigateTo } = useNavigation(); // Using custom hook for navigation
 
     const handleonswitchh = () => {
         setswitchh(!switchh);
     }
 
-    // Function to toggle heart icon
     const toggleHeart = () => {
         setHeartFilled(!heartFilled);
+    }
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault(); 
+        if (searchQuery === "phones" || searchQuery === "mobiles" || searchQuery === "smartphones" || searchQuery === "cell phones") {
+            navigateTo('/mobiles');
+        } else if (searchQuery === "computers" || searchQuery === "pcs" || searchQuery === "laptops" || searchQuery === "desktops") {
+            navigateTo('/computers');
+        } else if (searchQuery === "drones" || searchQuery === "cameras" || searchQuery === "photography" || searchQuery === "camera equipment" || searchQuery === "camera accessories") {
+            navigateTo('/drones & cameras');
+        } else if (searchQuery === "sale" || searchQuery === "discount" || searchQuery === "clearance" || searchQuery === "special offers") {
+            navigateTo('/sale');
+        } else if (searchQuery === "tablets" || searchQuery === "ipads" || searchQuery === "tablet computers") {
+            navigateTo('/tablets');
+        } else if (searchQuery === "best sellers" || searchQuery === "popular" || searchQuery === "top sellers" || searchQuery === "trending") {
+            navigateTo('/best sellers');
+        } else if (searchQuery === "tv" || searchQuery === "home cinema" || searchQuery === "televisions" || searchQuery === "home theater") {
+            navigateTo('/t.v. & home cinema');
+        } else if (searchQuery === "wearable watch" || searchQuery === "smartwatch" || searchQuery === "fitness tracker" || searchQuery === "wearable technology") {
+            navigateTo('/wearable watch');
+        } else if (searchQuery === "speakers" || searchQuery === "audio systems" || searchQuery === "sound systems" || searchQuery === "home audio") {
+            navigateTo('/speakers');
+        } else if (searchQuery === "headphones" || searchQuery === "earphones" || searchQuery === "earbuds" || searchQuery === "wireless headphones") {
+            navigateTo('/headphones');
+        } else {
+            setShowAlert(true); // Set showAlert to true if no matching category found
+        }
+        setSearchQuery('');
+         // Reset searchQuery after submission
     }
 
     useEffect(() => {
@@ -28,11 +61,21 @@ const Navbar = () => {
 
         window.addEventListener('resize', handleResize);
 
-        // Initial check for display when component mounts
         handleResize();
 
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    // Watch for changes in showAlert state and reset it after 3 seconds
+    useEffect(() => {
+        if (showAlert) {
+            const timer = setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [showAlert]);
 
     return (
         <>
@@ -51,13 +94,21 @@ const Navbar = () => {
             <div id='second' className='second w-screen h-20 bg-white flex flex-col gap-4  justify-center'>
                 <div className='flex items-center justify-between text-black'>
                     <div id='forml1' className='flex gap-12 ml-12'>
-                       <Link to="/"><div className='text-4xl font-semibold'>TechShed</div></Link>
-                        <div className='flex justify-center' id='input1'>
-                            <input type="text" placeholder='Search..' className='bg-gray-200 rounded-l-full text-center w-72' />
-                            <div className='w-20 h-12 bg-purple-500 flex items-center justify-center rounded-r-full'>
-                                <button><i className="fa-solid fa-magnifying-glass text-white"></i></button>
+                        <Link to="/"><div className='text-4xl font-semibold'>TechShed</div></Link>
+                        <form onSubmit={handleSearchSubmit}>
+                            <div className='flex justify-center' id='input1'>
+                                <input
+                                    type="text"
+                                    placeholder='Search..'
+                                    className='bg-gray-200 rounded-l-full text-center w-72'
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                                <div className='w-20 h-12 bg-purple-500 flex items-center justify-center rounded-r-full'>
+                                    <button type="submit"><i className="fa-solid fa-magnifying-glass text-white"></i></button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div className='flex mr-12 gap-12'>
                         <div id='login' className='flex gap-2'>
@@ -87,10 +138,12 @@ const Navbar = () => {
                 <div><Link to="/Tablets">Tablets</Link></div>
                 <div><Link to="/Drones & Cameras">Drones and Cameras</Link></div>
                 <div><Link to="/Mobiles">Mobiles</Link></div>
-                <div><Link to="/T.V & Home Cinema">T.V & Home Cinema</Link></div>
+                <div><Link to="/T.V. & Home Cinema">T.V & Home Cinema</Link></div>
                 <div><Link to="/Wearable Watch">Wearable Watch</Link></div>
                 <div><Link to="/Sale">Sale</Link></div>
             </div>}
+            {/* Conditionally render the SearchAlert component if showAlert is true */}
+            {showAlert && <SearchAlert />}
         </>
     );
 }

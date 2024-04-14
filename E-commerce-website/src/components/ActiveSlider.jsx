@@ -16,19 +16,23 @@ import buds2 from '../assets/buds3.webp'
 import cam1 from '../assets/cam1.webp'
 import drone2 from '../assets/drone2.webp'
 import lap2 from '../assets/lap2.webp'
+import useNavigation from './useNavigation';
 
 
 const ServiceData = [
-    { title: "Ocean Pro 11 - 12.3' Touch Screen", OldPrice: "85$", price: "70$", img: phone4, ratings: 3.5, OnSale: true },
-    { title: "Fitboot Inspire Fitness Tracker With Heart Rate Tracking", OldPrice: "90$", price: "70$", img: watch, ratings: 3, OnSale: true },
-    { title: "HKI Tech Quadcopter Drone With 360 Camera & Controller", price: "70$", img: drone2, ratings: 4, OnSale: false },
-    { title: "JP - Space Tablet 10.4' Wi-Fi 32GB", OldPrice: "80$", price: "60$", img: phone3, ratings: 5, OnSale: true },
-    { title: "Shel 50' Class LED 4K UHD Smart TV", OldPrice: "95$", price: "60$", img: led1, ratings: 4.3, OnSale: true },
-    { title: "White Buds Wireless Earbud Headphones", price: "75$", img: buds1, ratings: 3.9, OnSale: false },
-    { title: "Megapixel Waterproof Mini Digital Camera", OldPrice: "90$", price: "60$", img: cam1, ratings: 5, OnSale: true },
-    { title: "JP Gaming Laptop 15.6' Laptop 256GB", OldPrice: "90$", price: "70$", img: lap2, ratings: 4.9, OnSale: true },
-    { title: "In-ear Noise Cancelling & Isolating Wireless Earbuds", price: "70$", img: buds2, ratings: 4.5, OnSale: false }
+    { title: "Ocean Pro 11 - 12.3' Touch Screen", OldPrice: "85$", price: "70$", imageSrc: phone4, ratings: 3.5, OnSale: true },
+    { title: "Fitboot Inspire Fitness Tracker With Heart Rate Tracking", OldPrice: "90$", price: "70$", imageSrc: watch, ratings: 3, OnSale: true },
+    { title: "HKI Tech Quadcopter Drone With 360 Camera & Controller", price: "70$", imageSrc: drone2, ratings: 4, OnSale: false },
+    { title: "JP - Space Tablet 10.4' Wi-Fi 32GB", OldPrice: "80$", price: "60$", imageSrc: phone3, ratings: 5, OnSale: true },
+    { title: "Shel 50' Class LED 4K UHD Smart TV", OldPrice: "95$", price: "60$", imageSrc: led1, ratings: 4.3, OnSale: true },
+    { title: "White Buds Wireless Earbud Headphones", price: "75$", imageSrc: buds1, ratings: 3.9, OnSale: false },
+    { title: "Megapixel Waterproof Mini Digital Camera", OldPrice: "90$", price: "60$", imageSrc: cam1, ratings: 5, OnSale: true },
+    { title: "JP Gaming Laptop 15.6' Laptop 256GB", OldPrice: "90$", price: "70$", imageSrc: lap2, ratings: 4.9, OnSale: true },
+    { title: "In-ear Noise Cancelling & Isolating Wireless Earbuds", price: "70$", imageSrc: buds2, ratings: 4.5, OnSale: false }
 ];
+
+
+
 
 const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -75,7 +79,18 @@ const EmptyStarIcon = () => (
 
 
 
-const ActiveSlider = () => {
+const ActiveSlider = ({setSelectedProduct}) => {
+
+    
+    const { navigateTo } = useNavigation();
+
+  const handleProductClick = (product) => {
+    // Call setSelectedProduct to update the selected product
+    setSelectedProduct(product);
+    const path = `/product/${product.title.replace(/\s+/g, '-').toLowerCase()}`;
+    navigateTo(path);
+  };
+
     return (
         <div className="flex items-center justify-center flex-col h-[90vh] bg-white gap-12 m-10">
             <h1 className="text-black font-light sm:text-4xl text-2xl">Best Sellers</h1>
@@ -111,10 +126,10 @@ const ActiveSlider = () => {
             >
                 {ServiceData.map((item, index) => (
     <SwiperSlide key={index}>
-        <div className="flex flex-col gap-6 mb-20 group relative shadow-inner shadow-black text-white rounded-xl px-6 py-8 h-[350px] w-[215px] lg:h-[400px] lg:w-[250px] overflow-hidden cursor-pointer">
+        <div className="flex flex-col gap-6 mb-20 group relative shadow-black shadow-lg text-white rounded-xl px-6 py-8 h-[350px] w-[215px] lg:h-[400px] lg:w-[250px] overflow-hidden cursor-pointer">
             {item.OnSale && <div className="absolute top-0 right-0 bg-red-500 text-white py-1 px-4 rounded-tr-xl rounded-bl-xl text-md z-10 font-semibold">Sale</div>}
-            <div id="i_box" className="relative overflow-hidden h-36 lg:h-56 md:h-36">
-                <img className="object-cover w-full h-full" src={item.img} alt={item.title} />
+            <div id="i_box" className="relative overflow-hidden h-36 lg:h-56 md:h-36" onClick={() => handleProductClick(item)}>
+                <img className="object-cover w-full h-full" src={item.imageSrc} alt={item.title} />
             </div>
             <div className="flex flex-col gap-1 absolute bottom-0 left-0 p-4 text-black">
                 <h1 className="text-lg lg:text-2xl font-light">{item.title}</h1>

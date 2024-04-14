@@ -21,7 +21,7 @@ const Imgtxt2 = () => {
           <div className='flex flex-col items-start gap-2'>
         <p className="text-xs md:text-sm text-center md:mt-0 mt-4">Limited quantities.</p>
         <p className="text-xs md:text-sm text-center md:text-left">See product detail pages for availability.</p>
-        <Link to="/all-products">
+        <Link to="/Shop All">
           <button className="bg-blue-500 text-white py-2 px-8 rounded-full mt-auto mb-4 md:mb-0">Shop</button>
         </Link>
         </div>

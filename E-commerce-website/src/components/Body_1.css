@@ -1,5 +1,5 @@
-.fade-in {
-    animation: fadeIn 1s ease-out;
+.fade-in-image {
+    animation: fadeIn 1s ease;
   }
   
   @keyframes fadeIn {

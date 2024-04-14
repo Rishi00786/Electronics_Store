@@ -1,0 +1,13 @@
+.animated-item {
+    animation: fadeInn 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

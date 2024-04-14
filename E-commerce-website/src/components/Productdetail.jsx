@@ -3,6 +3,9 @@ import AddToCartAlert from './AddToCartAlert'; // Import the AddToCartAlert comp
 import { useStateContext } from '../context/context';
 
 const ProductDetail = ({ product }) => {
+
+  
+
   const productToAdd = {
     img: product.imageSrc,
     title: product.title,

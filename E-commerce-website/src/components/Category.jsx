@@ -28,10 +28,10 @@ const Category = ({ heading, products }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     {products.map((product, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden relative" onClick={() => handleProductClick(product)}>
-                            {product.onSale && <span className="bg-red-500 text-white font-bold py-1 px-2 rounded-full absolute top-0 left-0 m-4">On Sale!</span>}
-                            <img src={product.imageSrc} alt={product.title} className=" object-cover rounded-t-lg" />
+                            {product.onSale && <span className="bg-red-500 text-white font-bold z-10 py-1 px-2 rounded-full absolute top-0 left-0 m-4">On Sale!</span>}
+                            <img src={product.imageSrc} id='i_box2' alt={product.title} className=" object-cover rounded-t-lg" />
                             <div className="p-4">
-                                <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
+                                <h2 className="text-lg font-semibold mb-2 mt-4">{product.title}</h2>
                                 <div className="text-gray-700 mb-2">{product.price}</div>
                                 <div className="flex items-center mb-2">
                                     {renderStarRatings(product.starRatings)}

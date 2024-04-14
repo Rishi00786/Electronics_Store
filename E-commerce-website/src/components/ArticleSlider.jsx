@@ -28,7 +28,7 @@ const ArticleSlider = () => {
 
   const generate_card = (card) => {
     return (
-      <div key={card.title} id='articles' className='text-black bg-white shadow-xl shadow-black flex flex-col items-center justify-center'>
+      <div key={card.title} id='articles' className='text-black bg-white flex flex-col items-center justify-center'>
         <div><img src={card.img} alt="" /></div>
         <div className='font-bold text-xl'>{card.title}</div>
         <div className='font-medium text-purple-600 text-xl'>{card.OnSale && <strike>{card.OldPrice} </strike>}{card.NewPrice}</div>

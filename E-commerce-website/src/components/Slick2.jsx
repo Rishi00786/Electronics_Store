@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import useNavigation from './useNavigation';
 import s4 from '../assets/SALE/s4.webp'
 import s5 from '../assets/SALE/s5.webp'
 import a2 from '../assets/Shop All/a2.webp';
@@ -70,17 +71,27 @@ const products = [
 ];
 
 // Function to generate an individual slide
-const generateSlide = (product) => {
+const generateSlide = (product, setSelectedProduct) => {
+  const { navigateTo } = useNavigation();
+
+  const handleProductClick = () => {
+    // Call setSelectedProduct to update the selected product
+    setSelectedProduct(product);
+    const path = `/product/${product.title.replace(/\s+/g, '-').toLowerCase()}`;
+    navigateTo(path);
+  };
+
   return (
     <div>
-      <div key={product.title} className="p-4 flex flex-col items-center justify-center">
+      <div key={product.title} className="p-4 flex flex-col items-center justify-center " onClick={handleProductClick}>
         <img
+          id='i_box2'
           src={product.imageUrl}
           alt={product.title}
-          className="mx-auto w-full md:w-64 h-64 object-cover border border-red-300"
+          className="mx-auto w-full md:w-64 h-64 object-cover"
         />
         <div className='flex flex-col items-center justify-center bg-gray-400 text-white w-full md:w-64'>
-          <h3 className="text-lg font-bold mt-2">{product.title}</h3>
+          <h3 className="text-lg font-bold mt-6">{product.title}</h3>
           <p className="text-gray-700 mt-1">{product.price}</p>
           <div className="flex items-center">
             {Array.from({ length: 5 }).map((_, index) => (
@@ -98,11 +109,11 @@ const generateSlide = (product) => {
 };
 
 // Function to generate multiple slides
-const generateSlides = (products) => {
-  return products.map(product => generateSlide(product));
+const generateSlides = (products, setSelectedProduct) => {
+  return products.map(product => generateSlide(product, setSelectedProduct));
 };
 
-const Slick2 = () => {
+const Slick2 = ({ setSelectedProduct }) => {
   const sliderRef = useRef(null);
 
   const goToPrev = () => {
@@ -142,7 +153,7 @@ const Slick2 = () => {
       <h1 className='text-4xl font-medium text-center'>You might also like</h1>
       <div className="px-4 relative">
         <Slider {...settings} ref={sliderRef}>
-          {generateSlides(products)}
+          {generateSlides(products, setSelectedProduct)}
         </Slider>
         <button className="absolute top-1/2 transform -translate-y-1/2 left-0 bg-gray-600 text-white sm:px-4 sm:py-2 px-2 py-1 mr-12 rounded-md md:ml-2" onClick={goToPrev}>
           <i class="fa-solid fa-arrow-left"></i>

@@ -17,7 +17,7 @@ const Imgtxt = () => {
           <div className='font-bold text-5xl mt-4 mb-4'>$150</div>
           <div className='text-center md:text-left'> on selected laptop & tablets brands</div></p>
         <p className="text-xs md:text-sm mb-4 text-center">Terms and conditions apply</p>
-        <Link to="/all-products">
+        <Link to="/Shop All">
           <button className="bg-blue-500 text-white py-2 px-8 rounded-full mt-auto mb-4 md:mb-0">Shop</button>
         </Link>
       </div>

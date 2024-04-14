@@ -7,7 +7,7 @@ const Sidebar = () => {
     const generate=(name)=>{
         return(
             <div className='flex flex-col gap-2 items-center justify-center lg:gap-6'>
-                <Link to={name}><div className='font-thin text-sm'>{name}</div></Link>
+                <Link to={"/"+name}><div className='font-thin text-sm'>{name}</div></Link>
                 <div id='line' className='w-full bg-black'></div>
             </div>
         )
@@ -28,7 +28,7 @@ const Sidebar = () => {
             <div><Link to="/about-us"><u>About</u></Link></div>
             <div><Link to="/contact-us"><u>Contact</u></Link></div>
             <div><Link to="/help-centre"><u>Help</u></Link></div>
-            <div><Link to="/call">Call us <u>123-456-7890</u></Link></div>
+            <div><Link to="/">Call us <u>123-456-7890</u></Link></div>
             <div><i className="fa-regular fa-heart text-2xl"></i></div>
         </div>
         </div>
@@ -36,7 +36,7 @@ const Sidebar = () => {
             {generate("Shop All")}
             {generate("Computers")}
             {generate("Tablets")}
-            {generate("Drones and Cameras")}
+            {generate("Drones & Cameras")}
             {generate("Audio")}
             {generate("Mobile")}
             {generate("T.V. & Home Cinema")}

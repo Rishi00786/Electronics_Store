@@ -66,7 +66,7 @@ const Footer = () => {
           <img src={f4} alt="" />
           <img src={f5} alt="" />
           <img src={f6} alt="" />
-v         <img src={f7} alt="" />
+          <img src={f7} alt="" />
           <img src={f8} alt="" />
         </div>
       </div>
