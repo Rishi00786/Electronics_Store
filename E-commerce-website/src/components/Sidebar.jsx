@@ -17,9 +17,6 @@ const Sidebar = () => {
     <>
     <div id="main" className='flex flex-col gap-20 lg:gap-8 h-max w-screen lg:w-max'>
         <div className='flex flex-col gap-12'>
-            <div>
-                Home&rarr;
-            </div>
         <div className='flex gap-4 mt-4 ml-4 lg:hidden'>
             <div className='font-thin text-xl'>Log In</div>
             <div><i className="fa-solid fa-user text-2xl"></i></div>

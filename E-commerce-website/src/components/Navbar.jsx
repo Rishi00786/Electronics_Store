@@ -15,6 +15,7 @@ const Navbar = () => {
 
     const handleonswitchh = () => {
         setswitchh(!switchh);
+        // console.log("triggered")
     }
 
     const toggleHeart = () => {

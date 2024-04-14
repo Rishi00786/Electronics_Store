@@ -23,174 +23,181 @@ import ShipRet from './components/ShipRet';
 import TermsCondn from './components/TermsCondn';
 import Cart from './components/Cart';
 import Login from './components/Login';
+import { useStateContext } from './context/context';
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [switchh, setSwitchh] = useState(false); // Assuming this state is defined in your context
+  const {switchh, setSwitchh} = useStateContext(); // Assuming this state is defined in your context
 
   return (
     <Router>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<>
+        <Route path="/" element={
+          <>
           <Navbar />
-          {!switchh && <Body_1 />}
-          {!switchh && <ActiveSlider setSelectedProduct={setSelectedProduct} />}
-          {!switchh && <NextComp />}
-          {!switchh && <Imgtxt />}
-          {!switchh && <Slick setSelectedProduct={setSelectedProduct} />}
-          {!switchh && <Imgtxt2 />}
-          {!switchh && <Brands />}
-          {!switchh && <Imgtxt3 />}
-          {!switchh && <Footer />}
-          {switchh && <Sidebar />}
-        </>} />
+          {!switchh && (
+            <>
+              <Body_1 />
+              <ActiveSlider setSelectedProduct={setSelectedProduct} />
+              <NextComp />
+              <Imgtxt />
+              <Slick setSelectedProduct={setSelectedProduct} />
+              <Imgtxt2 />
+              <Brands />
+              <Imgtxt3 />
+              <Footer />
+            </>
+          )}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
+        </>
+        } />
         <Route path="/help-centre" element={<>
           <Navbar />
           {!switchh && <Helpcentre />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/login" element={<>
           <Navbar />
           {!switchh && <Login />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/about-us" element={<>
           <Navbar />
           {!switchh && <About />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/contact-us" element={<>
           <Navbar />
           {!switchh && <Contact />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/shipping-returns" element={<>
           <Navbar />
           {!switchh && <ShipRet />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/terms-conditions" element={<>
           <Navbar />
           {!switchh && <TermsCondn />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/payment-methods" element={<>
           <Navbar />
           {!switchh && <TermsCondn />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/careers" element={<>
           <Navbar />
           {!switchh && <About />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/my-cart" element={<>
           <Navbar />
           {!switchh && <Cart />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/drones & cameras" element={<>
           <Navbar />
           {!switchh && <Category products={products.dronesAndCameras} heading="Drones and Cameras" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/mobiles" element={<>
           <Navbar />
           {!switchh && <Category products={products.mobile} heading="Mobiles" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/computers" element={<>
           <Navbar />
           {!switchh && <Category products={products.computers} heading="Computers" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/tablets" element={<>
           <Navbar />
           {!switchh && <Category products={products.tablets} heading="Tablets" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/Wearable Watch" element={<>
           <Navbar />
           {!switchh && <Category products={products.wearableTech} heading="Wearable Tech" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/Sale" element={<>
           <Navbar />
           {!switchh && <Category products={products.sale} heading="Sale Products" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/Shop All" element={<>
           <Navbar />
           {!switchh && <Category products={products.shopAll} heading="All Products" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/T.V. & Home Cinema" element={<>
           <Navbar />
           {!switchh && <Category products={products.tvAndHomeCinema} heading="T.V & Home Cinema" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/Best Sellers" element={<>
           <Navbar />
           {!switchh && <Category products={products.computers} heading="Best Sellers" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/Speakers" element={<>
           <Navbar />
           {!switchh && <Category products={products.computers} heading="Speakers" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/Headphones" element={<>
           <Navbar />
           {!switchh && <Category products={products.computers} heading="Headphones" />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         <Route path="/product/:productName" element={<>
           <Navbar />
           {!switchh && <ProductDetail product={selectedProduct} />}
           {!switchh && <Imgtxt3 />}
           {!switchh && <Footer />}
-          {switchh && <Sidebar />}
+      {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>} />
         {Object.entries(products).flatMap(([category, productList]) => [
           <Route
@@ -202,7 +209,7 @@ function App() {
                 {!switchh && <Category products={productList} heading={category} />}
                 {!switchh && <Imgtxt3 />}
                 {!switchh && <Footer />}
-                {switchh && <Sidebar />}
+            {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
               </>
             }
           />,
@@ -213,7 +220,7 @@ function App() {
               element={
                 <>
                   <Navbar />
-                  {switchh && <Sidebar />}
+              {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
                   <ProductDetail product={product} />
                   <Slick2 setSelectedProduct={setSelectedProduct} />
                   <Imgtxt3 />
