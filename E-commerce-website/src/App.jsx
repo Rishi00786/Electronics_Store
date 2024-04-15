@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import ScrollToTop from './components/ScrollToTop';
@@ -28,6 +28,21 @@ import { useStateContext } from './context/context';
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const {switchh, setSwitchh} = useStateContext(); // Assuming this state is defined in your context
+ 
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const pathname = window.location.pathname;
+      document.title = "Electronics Store - " + pathname;
+    };
+
+    // Add event listener for route changes
+    window.addEventListener('popstate', handleRouteChange);
+
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, []);
 
   return (
     <Router>
@@ -52,7 +67,8 @@ function App() {
       {switchh && <div id='sidebar' className={switchh ? 'sidebar-visible' : 'sidebar-hidden'}><Sidebar/></div>}
         </>
         } />
-        <Route path="/help-centre" element={<>
+        <Route path="/help-centre"
+        element={<>
           <Navbar />
           {!switchh && <Helpcentre />}
           {!switchh && <Imgtxt3 />}

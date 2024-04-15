@@ -4,7 +4,6 @@ import './Navbar.css';
 import { useStateContext } from '../context/context';
 import useNavigation from './useNavigation';
 import SearchAlert from './SearchAlert'; // Import the SearchAlert component
-
 const Navbar = () => {
     const [display, setDisplay] = useState(false);
     const [heartFilled, setHeartFilled] = useState(false); 
@@ -12,6 +11,19 @@ const Navbar = () => {
     const [showAlert, setShowAlert] = useState(false); // State to control the visibility of the alert
     const { switchh, setswitchh } = useStateContext();
     const { navigateTo } = useNavigation(); // Using custom hook for navigation
+
+    useEffect(() => {
+        if (location.pathname === "/") {
+            document.title = "Dern Galaxy";
+        } else {
+            let pathname = decodeURIComponent(location.pathname.replace(/[/-\s]/g, '')); // Remove '/', '-' and spaces, but keep '&'
+            pathname = pathname.charAt(0).toUpperCase() + pathname.slice(1); // Capitalize the first letter
+            document.title = "Dern Galaxy - " + pathname;
+        }
+    }, [location.pathname]);
+    
+
+    
 
     const handleonswitchh = () => {
         setswitchh(!switchh);
@@ -95,7 +107,7 @@ const Navbar = () => {
             <div id='second' className='second w-screen h-20 bg-white flex flex-col gap-4  justify-center'>
                 <div className='flex items-center justify-between text-black'>
                     <div id='forml1' className='flex gap-12 ml-12'>
-                        <Link to="/"><div className='text-4xl font-semibold'>TechShed</div></Link>
+                        <div className='sm:text-4xl text-2xl font-semibold'><Link to="/">Dern Galaxy</Link></div>
                         <form onSubmit={handleSearchSubmit}>
                             <div className='flex justify-center' id='input1'>
                                 <input

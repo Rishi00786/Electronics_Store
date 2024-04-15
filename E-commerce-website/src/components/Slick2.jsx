@@ -27,44 +27,44 @@ const StarIcon = ({ className, filled }) => (
 
 const products = [
   {
-    title: "Product 1",
-    imageUrl: s4,
+    title: "Like 1",
+    imageSrc: s4,
     price: 20 + '$',
     ratings: 4.5
   },
   {
-    title: "Product 2",
-    imageUrl: s5,
+    title: "Like 2",
+    imageSrc: s5,
     price: 20 + '$',
     ratings: 5
   },
   {
-    title: "Product 3",
-    imageUrl: t1,
+    title: "Like 3",
+    imageSrc: t1,
     price: 20 + '$',
     ratings: 4
   },
   {
-    title: "Product 4",
-    imageUrl: t2,
+    title: "Like 4",
+    imageSrc: t2,
     price: 20 + '$',
     ratings: 4
   },
   {
-    title: "Product 5",
-    imageUrl: t3,
+    title: "Like 5",
+    imageSrc: t3,
     price: 20 + '$',
     ratings: 4
   },
   {
-    title: "Product 6",
-    imageUrl: a2,
+    title: "Like 6",
+    imageSrc: a2,
     price: 20 + '$',
     ratings: 4
   },
   {
-    title: "Product 7",
-    imageUrl: a3,
+    title: "Like 7",
+    imageSrc: a3,
     price: 20 + '$',
     ratings: 4
   },
@@ -86,13 +86,13 @@ const generateSlide = (product, setSelectedProduct) => {
       <div key={product.title} className="p-4 flex flex-col items-center justify-center " onClick={handleProductClick}>
         <img
           id='i_box2'
-          src={product.imageUrl}
+          src={product.imageSrc}
           alt={product.title}
           className="mx-auto w-full md:w-64 h-64 object-cover"
         />
-        <div className='flex flex-col items-center justify-center bg-gray-400 text-white w-full md:w-64'>
+        <div className='flex flex-col items-center justify-center bg-gray-600 text-white w-full md:w-64'>
           <h3 className="text-lg font-bold mt-6">{product.title}</h3>
-          <p className="text-gray-700 mt-1">{product.price}</p>
+          <p className="text-white mt-1">{product.price}</p>
           <div className="flex items-center">
             {Array.from({ length: 5 }).map((_, index) => (
               <StarIcon

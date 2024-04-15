@@ -27,9 +27,9 @@ const Helpcentre = () => {
           <div className="p-4 text-gray-700 bg-white rounded-md">
             <p className='text-sm font-light'>{description}</p>
             <div className="flex text-2xl gap-4 mt-2">
-              <i className="fa-brands fa-x-twitter"></i>
-              <i className="fa-brands fa-square-instagram"></i>
-              <i className="fa-brands fa-square-youtube"></i>
+              <a href="https://twitter.com/" target='_blank'><i className="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/sshui_bnaeh/" target='_blank'><i className="fa-brands fa-square-instagram"></i></a>
+              <a href="https://github.com/Rishi00786" target='_blank'><i className="fa-brands fa-square-github"></i></a>
             </div>
           </div>
         )}
