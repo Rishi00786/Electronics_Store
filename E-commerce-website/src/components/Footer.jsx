@@ -71,7 +71,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-gray-200 text-black w-full text-center py-4">
-        © 2035 by TechShed. Powered and secured by <a href="https://www.instagram.com/sshui_bnaeh/" target='_blank'><u>Rishi</u></a>
+        © 3024 by DernGalaxy. Powered and secured by <a href="https://www.instagram.com/sshui_bnaeh/" target='_blank'><u>Rishi</u></a>
       </div>
     </footer>
   );
